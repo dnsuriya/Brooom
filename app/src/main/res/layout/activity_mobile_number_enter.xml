@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.sidedrive.brooom.MobileNumberEnterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TopicText"
+                android:layout_marginBottom="30dp"
+                android:text="Enter your phone number" />
+
+            <AutoCompleteTextView
+                android:id="@+id/autoTextLoginEmail"
+                style="@style/TextFields"
+                android:layout_marginBottom="30dp"
+                android:digits="1234567890"
+                android:hint="Phone Number"
+                android:maxLength="10"
+                android:paddingLeft="20dp" />
+
+
+            <Button
+                android:id="@+id/btnLogin"
+                style="@style/Button"
+                android:onClick="onLogin"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Next" />
+
+
+            <TextView
+                android:id="@+id/mobile_text_error"
+                style="@style/ErrorText"
+                android:layout_marginStart="15dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

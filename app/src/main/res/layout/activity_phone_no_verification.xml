@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.sidedrive.brooom.PhoneNoVerification">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                style="@style/TopicText"
+                android:layout_marginBottom="30dp"
+                android:text="Verify Phone Number" />
+
+            <EditText
+                android:id="@+id/securityKey"
+                style="@style/TextFields"
+                android:layout_marginBottom="15dp"
+                android:paddingLeft="20dp" />
+
+            <Button
+                android:id="@+id/btnVerify"
+                style="@style/Button"
+                android:onClick="Onverify"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Next" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                android:onClick="onResend"
+                android:text="Resend Code"
+                android:textColor="#000080"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

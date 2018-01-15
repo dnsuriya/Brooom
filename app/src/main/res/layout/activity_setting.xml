@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.sidedrive.brooom.MainActivity">
+    tools:context="com.sidedrive.brooom.UserSetting">
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,18 +18,27 @@
             android:layout_marginStart="10dp"
             android:orientation="vertical">
 
+
             <Button
-                android:id="@+id/btnLoginme"
+                android:id="@+id/btnEdit"
                 style="@style/Button"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/button"
-                android:onClick="onLogMeIn"
+                android:onClick="OnEdit"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Log Me In" />
+                android:text="Edit Profile" />
+
+
+            <Button
+                android:id="@+id/btnSignOut"
+                style="@style/Button"
+                android:onClick="OnSignOut"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Sign Out" />
 
 
         </LinearLayout>
     </ScrollView>
+
 
 </RelativeLayout>

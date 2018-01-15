@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.sidedrive.brooom.MainActivity">
+    tools:context="com.sidedrive.brooom.Complain">
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,18 +18,36 @@
             android:layout_marginStart="10dp"
             android:orientation="vertical">
 
+
+            <TextView
+                style="@style/TopicText"
+                android:layout_marginBottom="14dp"
+                android:text="Submit Your Complain" />
+
+            <MultiAutoCompleteTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="14dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="30dp"
+                android:width="300dp"
+                android:height="100dp"
+                android:textSize="15dp" />
+
             <Button
-                android:id="@+id/btnLoginme"
+                android:id="@+id/btnComplain"
                 style="@style/Button"
-                android:layout_marginTop="40dp"
                 android:background="@drawable/button"
-                android:onClick="onLogMeIn"
+                android:onClick="OnSubmitComplain"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Log Me In" />
+                android:text="Submit" />
 
 
         </LinearLayout>
+
+
     </ScrollView>
+
 
 </RelativeLayout>

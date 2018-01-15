@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.sidedrive.brooom.Signup_Rider">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="10dp"
+                android:text="Name "
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/riderFirstName"
+                    style="@style/TextFields"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="0.5"
+                    android:hint="First Name"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
+
+                <EditText
+                    android:id="@+id/riderLastName"
+                    style="@style/TextFields"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="0.5"
+                    android:hint="Last Name"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:text="Email "
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/riderEmail"
+                style="@style/TextFields"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="0.5"
+                android:hint="Email"
+                android:paddingLeft="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:text="Password"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/riderPassword"
+                style="@style/TextFields"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="0.5"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="20dp" />
+
+            <CheckBox
+                android:id="@+id/ridercheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:buttonTint="@color/black"
+                android:text="I accept the Terms and Conditions"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnSignupRider"
+                style="@style/Button"
+                android:onClick="onSignUpRider"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="SIGN UP" />
+
+
+            <TextView
+                android:id="@+id/rider_text_error"
+                style="@style/ErrorText"
+                android:paddingLeft="10dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

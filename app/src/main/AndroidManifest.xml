@@ -2,6 +2,7 @@
     package="com.sidedrive.brooom">
 
     <application
+        android:name=".GlobalVariableMaintaining"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -30,5 +31,51 @@
         <activity
             android:name=".RiderMapsActivity"
             android:label="@string/title_activity_rider_maps"></activity>
+
+        <activity
+            android:name=".Signup_Rider"
+            android:parentActivityName=".SelectSignup" />
+        <activity
+            android:name=".SelectSignup"
+            android:parentActivityName=".PasswordEnterActivity" />
+        <activity
+            android:name=".ConfirmMobile"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".SelectPaymentMethod"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".FrogetPassword"
+            android:parentActivityName=".PasswordEnterActivity" />
+        <activity
+            android:name=".SendCode"
+            android:parentActivityName=".FrogetPassword" />
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EndOfTrip"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".PasswordEnterActivity"
+            android:parentActivityName=".MobileNumberEnterActivity" />
+        <activity
+            android:name=".MobileNumberEnterActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Complain"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".UserSetting"
+            android:parentActivityName=".Home" />
+        <activity
+            android:name=".PhoneNoVerification"
+            android:parentActivityName=".MobileNumberEnterActivity" />
+        <activity
+            android:name=".EditProfile"
+            android:parentActivityName=".UserSetting" />
+        <activity android:name=".TripList" />
+        <activity android:name=".AddTrip"></activity>
     </application>
 </manifest>

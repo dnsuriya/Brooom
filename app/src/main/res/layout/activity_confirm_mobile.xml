@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.sidedrive.brooom.MainActivity">
+    tools:context="com.sidedrive.brooom.ConfirmMobile">
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,18 +18,30 @@
             android:layout_marginStart="10dp"
             android:orientation="vertical">
 
+
+            <TextView
+                style="@style/TopicText"
+                android:layout_marginBottom="14dp"
+                android:text="Enter Code" />
+
+            <EditText
+                style="@style/TextFields"
+                android:layout_marginBottom="15dp"
+                android:hint="Code"
+                android:paddingLeft="20dp" />
+
             <Button
-                android:id="@+id/btnLoginme"
+                android:id="@+id/btnConfirm"
                 style="@style/Button"
-                android:layout_marginTop="40dp"
                 android:background="@drawable/button"
-                android:onClick="onLogMeIn"
+                android:onClick="OnConfirm"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Log Me In" />
+                android:text="CONFIRM" />
 
 
         </LinearLayout>
     </ScrollView>
+
 
 </RelativeLayout>

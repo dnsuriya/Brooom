@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.sidedrive.brooom.EditProfile">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:adjustViewBounds="true"
+                android:maxHeight="150dp"
+                android:maxWidth="150dp"
+                android:paddingTop="10dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@mipmap/ic_launcher_round" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:onClick="OnSelectImage"
+                android:text="Change Profile Picture"
+                android:textColor="#000080"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="10dp"
+                android:text="Mobile Number"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/Mobile"
+                style="@style/TextFields"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="0.5"
+                android:paddingLeft="20dp"
+                android:digits="1234567890"
+                android:hint="Phone Number"
+                android:maxLength="10"/>
+
+            <Button
+                android:id="@+id/btnUpdate"
+                style="@style/Button"
+                android:onClick="OnUpdateData"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Save" />
+
+
+            <TextView
+                android:id="@+id/text_error"
+                style="@style/ErrorText"
+                android:paddingLeft="10dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.sidedrive.brooom.MainActivity">
+    tools:context="com.sidedrive.brooom.SelectPaymentMethod">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,17 +17,19 @@
             android:layout_marginStart="10dp"
             android:orientation="vertical">
 
+
+            <TextView
+                style="@style/TopicText"
+                android:paddingBottom="20dp"
+                android:paddingLeft="10dp"
+                android:text="Add Payment" />
+
             <Button
-                android:id="@+id/btnLoginme"
+                android:id="@+id/btnCrediCardAdd"
                 style="@style/Button"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/button"
-                android:onClick="onLogMeIn"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Log Me In" />
-
-
+                android:text="Credit or Debit Card" />
         </LinearLayout>
     </ScrollView>
 

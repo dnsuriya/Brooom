@@ -1,43 +1,61 @@
 package com.sidedrive.brooom;
 
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-    private Button m_rider, m_driver;
+
+public class MainActivity extends AppCompatActivity {
+    Button btn_login;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener firebaseAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        m_driver = (Button) findViewById(R.id.driver);
-        m_rider = (Button) findViewById(R.id.rider);
+        btn_login = findViewById(R.id.btnLoginme);
 
-        m_driver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent driverLoginIntent = new Intent(MainActivity.this, DriverLoginActivity.class);
-                startActivity(driverLoginIntent);
-                finish();
-                return;
-            }
-        });
+        mAuth = FirebaseAuth.getInstance();
 
-        m_rider.setOnClickListener(new View.OnClickListener() {
+        firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
-            public void onClick(View view) {
-                Intent riderLoginIntent = new Intent(MainActivity.this, RiderLoginActivity.class);
-                startActivity(riderLoginIntent);
-                finish();
-                return;
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    Intent intent = new Intent(MainActivity.this, Home.class);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
             }
-        });
+        };
+    }
+
+
+    public void onLogMeIn(View view) {
+        startActivity(new Intent(this, MobileNumberEnterActivity.class));
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(firebaseAuthListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(firebaseAuthListener);
+    }
+
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_payment"
+            android:textSize="18dp"
+            android:title="Payment" />
+
+
+        <item
+            android:id="@+id/nav_trips"
+            android:textSize="18dp"
+            android:title="Trips" />
+
+        <item
+            android:id="@+id/nav_endTrip"
+            android:textSize="18dp"
+            android:title="End Trip" />
+
+        <item
+            android:id="@+id/nav_complain"
+            android:textSize="18dp"
+            android:title="Complain" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:textSize="18dp"
+            android:title="Settings" />
+
+        <item
+            android:id="@+id/nav_addtrip"
+            android:textSize="18dp"
+            android:title="Add Trip" />
+
+
+
+    </group>
+
+</menu>

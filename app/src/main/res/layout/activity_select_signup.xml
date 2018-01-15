@@ -4,28 +4,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="com.sidedrive.brooom.MainActivity">
+    tools:context="com.sidedrive.brooom.SelectSignup">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="fill_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="40dp"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btnLoginme"
+                android:id="@+id/btnregisterrider"
                 style="@style/Button"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/button"
-                android:onClick="onLogMeIn"
+                android:onClick="OnRegisterRider"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Log Me In" />
+                android:text="Become a Rider" />
+
+
+            <TextView
+                android:id="@+id/text_error"
+                style="@style/ErrorText"
+                android:paddingLeft="10dp" />
+
+            <Button
+                android:id="@+id/btnreset"
+                style="@style/Button"
+                android:onClick="OnReset"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Reset Phone Number"
+                android:visibility="invisible" />
 
 
         </LinearLayout>
