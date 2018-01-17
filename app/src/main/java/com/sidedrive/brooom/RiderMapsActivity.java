@@ -40,7 +40,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.List;
 
-public class RiderMapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
+public class RiderMapsActivity extends FragmentActivity
+        implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 
     private GoogleMap m_map;
     private GoogleApiClient m_googleApiClient;
@@ -127,7 +128,7 @@ public class RiderMapsActivity extends FragmentActivity implements OnMapReadyCal
 
                 m_map.addMarker(new MarkerOptions().position(m_pickupLocation).title("Pickup Here"));
 
-                getClosestDriver();
+//                getClosestDriver();
             }
         });
     }
@@ -194,7 +195,7 @@ public class RiderMapsActivity extends FragmentActivity implements OnMapReadyCal
 
                     driverRef.updateChildren(mapRiderIds);
 
-                    getDriverLocation();
+//                    getDriverLocation();
 
                 }
             }
@@ -214,7 +215,7 @@ public class RiderMapsActivity extends FragmentActivity implements OnMapReadyCal
                 if(!m_driverFound)
                 {
                     m_radius++;
-                    getClosestDriver();
+//                    getClosestDriver();
                 }
             }
 
