@@ -57,7 +57,7 @@ public class SelectSignup extends AppCompatActivity {
                     btnRider.setEnabled(false);
                     btnreset.setVisibility(View.VISIBLE);
                 } else {
-                    startActivity(new Intent(SelectSignup.this, Signup_Rider.class));
+                    startActivity(new Intent(SelectSignup.this, RiderName.class));
                 }
             }
 

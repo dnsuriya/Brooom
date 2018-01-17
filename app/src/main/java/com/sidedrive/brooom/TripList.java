@@ -13,6 +13,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class TripList extends AppCompatActivity {
 
     //show the last trip as a list view
@@ -22,6 +24,8 @@ public class TripList extends AppCompatActivity {
     private ListView trip_list;
     private FirebaseAuth mAuth;
     private TextView tripdetail;
+
+    ArrayList<String> list=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +33,11 @@ public class TripList extends AppCompatActivity {
 
         tripdetail = findViewById(R.id.tripdetail);
         trip_list = findViewById(R.id.trip_list);
+
+        ArrayAdapter adapter = new ArrayAdapter<String>(this,
+                R.layout.list_view, list);
+
+        trip_list.setAdapter(adapter);
 
         mAuth = FirebaseAuth.getInstance();
         showlist();
@@ -38,7 +47,9 @@ public class TripList extends AppCompatActivity {
     private void showlist() {
         //using user ID get the trip details and show in list view
 
-        tripdetail.setText("has");
+//        tripdetail.setText("has");
+
+
 
         String user_id = mAuth.getCurrentUser().getUid();
         Query myTopPostsQuery = FirebaseDatabase.getInstance().getReference()
@@ -49,33 +60,33 @@ public class TripList extends AppCompatActivity {
 
                 if (dataSnapshot.getChildrenCount() > 0) {
 
-                  Long child =  dataSnapshot.child("TRIP").getChildrenCount();
+                    Long child =  dataSnapshot.child("TRIP").getChildrenCount();
 
-                  String array[] = new String[5];
+                    String array[] = new String[5];
 
-                  int i = 0;
+                    int i = 0;
 
-                  for(DataSnapshot ds : dataSnapshot.child("TRIP").getChildren())
-                  {
-                      //retrive last 5 trips
+                    for(DataSnapshot ds : dataSnapshot.child("TRIP").getChildren())
+                    {
+                        //retrive last 5 trips
 
-                      if(i<5)
-                      {
-                          tripdetail.setText(tripdetail.getText().toString() + " "+ds.getValue().toString());
+                        if(i<5)
+                        {
+//                          tripdetail.setText(tripdetail.getText().toString() + " "+ds.getValue().toString());
 
-                          array[i] = ds.getValue().toString();
-                          ++i;
-                          //add list view
+                            array[i] = ds.getValue().toString();
+                            ++i;
+                            //add list view
 
-                      }
+                            list.add(ds.getValue().toString());
+
+                        }
 
 
-                  }
+                    }
                     //iterate though to show last 5 trips
 
-//                    tripdetail.setText("has");
-                   String price = dataSnapshot.child("TRIP").child("Trip5").getValue().toString();
-//                    tripdetail.setText(String.valueOf(child) + "Trip5 " + price);
+//
                 }
             }
 

@@ -10,6 +10,8 @@ public class GlobalVariableMaintaining extends Application {
     private String phoneNumber;
     private String email;
     private String userType;
+    private String userFirstName;
+    private String userLastName;
 
     public String getPhoneNumber() {
 
@@ -37,5 +39,21 @@ public class GlobalVariableMaintaining extends Application {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getUserFirstName() {
+        return userFirstName;
+    }
+
+    public void setUserFirstName(String userFirstName) {
+        this.userFirstName = userFirstName;
+    }
+
+    public String getUserLastName() {
+        return userLastName;
+    }
+
+    public void setUserLastName(String userLastName) {
+        this.userLastName = userLastName;
     }
 }

@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class PhoneNoVerification extends AppCompatActivity {
 
     private EditText securityCode;
+
+    private TextView phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,14 @@ public class PhoneNoVerification extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         securityCode = findViewById(R.id.securityKey);
+        phone = findViewById(R.id.phone);
+
+        //check in the codebase using password and the phone number
+        final GlobalVariableMaintaining globalvariable = (GlobalVariableMaintaining) getApplicationContext();
+        final String phoneno = globalvariable.getPhoneNumber();
+
+
+        phone.setText("Enter the code sent to "+phoneno);
     }
 
     public void Onverify(View view) {

@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,9 +60,10 @@ public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 
 
-        private ImageView image_view;
-    private TextView nav_user;
+    private ImageView image_view;
+    private TextView nav_user, rate;
     private FirebaseAuth mAuth;
+    private RatingBar ratingBar;
 
     private GoogleMap m_map;
     private GoogleApiClient m_googleApiClient;
@@ -136,13 +138,15 @@ public class Home extends AppCompatActivity
 
         View hView = navigationView.getHeaderView(0);
          nav_user = hView.findViewById(R.id.userName);
-//        nav_user.setText("Wajira");
 
         image_view = hView.findViewById(R.id.imageView);
+        rate = hView.findViewById(R.id.userRating);
+        ratingBar = hView.findViewById(R.id.userRatingBar);
 
         mAuth = FirebaseAuth.getInstance();
 
         loadImage();
+        loadRating();
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -171,7 +175,7 @@ public class Home extends AppCompatActivity
 
                 m_map.addMarker(new MarkerOptions().position(m_pickupLocation).title("Pickup Here"));
 
-//                getClosestDriver();
+                getClosestDriver();
             }
         });
 
@@ -234,6 +238,50 @@ public class Home extends AppCompatActivity
         }
 
     }
+
+    private void loadRating(){
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = mAuth.getCurrentUser().getUid();
+            //get user name
+            Query myTopPostsQuery = FirebaseDatabase.getInstance().getReference().child("Users").
+                    child("Riders").child(uid);
+            myTopPostsQuery.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    if (dataSnapshot.getChildrenCount() > 0) {
+
+                        rate.setText("has");
+
+                        final String NOOFTRIP = dataSnapshot.child("NOOFTRIP").getValue().toString();
+                        final String RATES = dataSnapshot.child("RATES").getValue().toString();
+
+                        if(NOOFTRIP != "0") {
+                            double tripNo = Double.parseDouble(NOOFTRIP);
+                            double totalRate = Double.parseDouble(RATES);
+
+                            double average_rate = totalRate / tripNo;
+
+                            String rate_str = String.valueOf(average_rate);
+
+                            rate.setText(rate_str);
+
+
+                            ratingBar.setRating((float)average_rate);
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });
+        }
+
+    }
+
 
     @Override
     protected void onStart() {
@@ -376,7 +424,7 @@ public class Home extends AppCompatActivity
 
                     driverRef.updateChildren(mapRiderIds);
 
-//                    getDriverLocation();
+                   getDriverLocation();
 
                 }
             }
@@ -396,7 +444,7 @@ public class Home extends AppCompatActivity
                 if(!m_driverFound)
                 {
                     m_radius++;
-//                    getClosestDriver();
+                    getClosestDriver();
                 }
             }
 

@@ -1,11 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sidedrive.brooom">
-
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:name=".GlobalVariableMaintaining"
@@ -15,7 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,12 +28,8 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".DriverMapsActivity"
-            android:label="@string/title_activity_driver_maps" />
-        <activity
             android:name=".RiderMapsActivity"
-            android:label="@string/title_activity_rider_maps"></activity>
-
+            android:label="@string/title_activity_rider_maps" />
         <activity
             android:name=".Signup_Rider"
             android:parentActivityName=".SelectSignup" />
@@ -80,6 +74,9 @@
             android:name=".EditProfile"
             android:parentActivityName=".UserSetting" />
         <activity android:name=".TripList" />
-        <activity android:name=".AddTrip"></activity>
+        <activity android:name=".AddTrip" />
+        <activity android:name=".RiderName" />
+        <activity android:name=".RiderEmail"></activity>
     </application>
+
 </manifest>

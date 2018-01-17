@@ -26,7 +26,6 @@ import java.util.Map;
 public class Signup_Rider extends AppCompatActivity {
 
     Button btnRiderSignUp;
-    EditText autoTextFirstName, autoTextLastName, autoTextEmail;
     AutoCompleteTextView edPassword;
     TextView text_error;
     CheckBox ridercheckbox;
@@ -61,9 +60,6 @@ public class Signup_Rider extends AppCompatActivity {
         };
 
         btnRiderSignUp = findViewById(R.id.btnSignupRider);
-        autoTextFirstName = findViewById(R.id.riderFirstName);
-        autoTextLastName = findViewById(R.id.riderLastName);
-        autoTextEmail = findViewById(R.id.riderEmail);
         edPassword = findViewById(R.id.riderPassword);
         text_error = findViewById(R.id.rider_text_error);
         ridercheckbox = findViewById(R.id.ridercheckbox);
@@ -71,29 +67,21 @@ public class Signup_Rider extends AppCompatActivity {
 
     public void onSignUpRider(View view) {
         text_error.setText("");
+
+        final GlobalVariableMaintaining globalvariable = (GlobalVariableMaintaining) getApplicationContext();
+
+
         //validate
-        final String firstName = autoTextFirstName.getText().toString();
-        final String lastName = autoTextLastName.getText().toString();
-        final String email = autoTextEmail.getText().toString();
+        final String firstName =globalvariable.getUserFirstName();
+        final String lastName =globalvariable.getUserLastName();
+        final String email = globalvariable.getEmail();
         final String password = edPassword.getText().toString();
 
-        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() ||
-                password.isEmpty()) {
+        if ( password.isEmpty()) {
             //fill the empty field
-            text_error.setText("Fill the empty fields");
+            text_error.setText("Enter the Password");
             return;
         } else {
-
-
-            //validate the email
-            CharSequence emailStr = email;
-            boolean b_email = ValidationUtil.isValidEmail(emailStr);
-
-            if (!b_email) {
-                text_error.setText("Enter valide Email address");
-                return;
-            }
-
 
             if (!ridercheckbox.isChecked()) {
                 text_error.setText("Must agree to Terms and Conditions");
@@ -101,8 +89,7 @@ public class Signup_Rider extends AppCompatActivity {
             }
 
             //finally enter details to database
-            final GlobalVariableMaintaining globalvariable = (GlobalVariableMaintaining) getApplicationContext();
-            final String phone = globalvariable.getPhoneNumber();
+             final String phone = globalvariable.getPhoneNumber();
 
             //check phone number already used or not
 

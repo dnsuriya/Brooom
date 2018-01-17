@@ -20,6 +20,7 @@
 
             <TextView
                 style="@style/TopicText"
+                android:id="@+id/phone"
                 android:layout_marginBottom="30dp"
                 android:text="Verify Phone Number" />
 
@@ -35,7 +36,7 @@
                 android:onClick="Onverify"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Next" />
+                android:text="NEXT" />
 
             <TextView
                 android:layout_width="wrap_content"
